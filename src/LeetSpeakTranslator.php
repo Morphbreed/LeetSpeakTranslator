@@ -8,7 +8,6 @@
 
 namespace Morphbreed\LeetSpeakTranslator;
 
-
 use Doctrine\Instantiator\Exception\InvalidArgumentException;
 
 class LeetSpeakTranslator
@@ -22,13 +21,8 @@ class LeetSpeakTranslator
     protected $search3 = array('E', 'O', 'L', 'A', 'I', 'R');
     protected $replace3 = array('3', '0', '7', '4' ,'!','2');
 
-    const TRANS_LEVEL_LOW = 1;
-
-
     public function translate($word, $level)
     {
-
-
         if (!is_string($word)) {
             throw new InvalidArgumentException('First argument is not a string');
         } else if (strlen($word) < 1) {
