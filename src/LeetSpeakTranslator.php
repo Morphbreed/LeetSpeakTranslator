@@ -33,14 +33,22 @@ class LeetSpeakTranslator
 
     public function translate($word, $level)
     {
+        $errors = [];
         if (!is_string($word)) {
-            throw new InvalidArgumentException('First argument is not a string');
-        } else if (strlen($word) < 1) {
-            throw new InvalidArgumentException('First Argument has no letters');
-        } else if (!is_numeric($level)) {
-            throw new InvalidArgumentException('Second argument is not a number');
-        } else if ($level > 3) {
-            throw new InvalidArgumentException('Second argument is higher than 3');
+            $errors[] = 'First argument is not a string';
+        }
+        if (strlen($word) < 1) {
+            $errors[] = 'First Argument has no letters';
+        }
+        if (!is_numeric($level)) {
+            $errors[] = 'Second argument is not a number';
+        }
+        if ($level > 3) {
+            $errors[] = 'Second argument is higher than 3';
+        }
+
+        if (!empty($errors)) {
+            throw new InvalidArgumentException(implode(', ', $errors));
         }
 
         $word = strtoupper($word);
