@@ -18,11 +18,13 @@ class LeetSpeakTranslator
     protected $search2 = array('E', 'O', 'L', 'A');
     protected $replace2 = array('3', '0', '7', '4');
 
-    protected $search3 = array('E', 'O', 'L', 'A', 'I', 'R');
-    protected $replace3 = array('3', '0', '7', '4' ,'!','2');
+    protected $search3 = array('E', 'O', 'L', 'A', 'I', 'R', 'S', 'T', 'G');
+    protected $replace3 = array('3', '0', '7', '4' ,'!','2', '5', '1', '9');
 
     public function translate($word, $level)
     {
+
+        //TODO: replace the if with a switch
         if (!is_string($word)) {
             throw new InvalidArgumentException('First argument is not a string');
         } else if (strlen($word) < 1) {
