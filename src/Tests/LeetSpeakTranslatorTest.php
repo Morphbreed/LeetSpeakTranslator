@@ -25,8 +25,8 @@ class LeetSpeakTranslatorTest extends PHPUnit_Framework_TestCase
     public function testIfTranslatorReplaceTheLetters()
     {
         $word = 'Reload';
-        $level = LeetSpeakTranslator::TRANS_LEVEL_LOW;
-        $expectedResult = 'R3l0ad';
+        $level = 1;
+        $expectedResult = 'R3L0AD';
         $result = $this->translator->translate($word, $level);
 
         $this->assertEquals(

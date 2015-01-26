@@ -12,19 +12,27 @@ use Doctrine\Instantiator\Exception\InvalidArgumentException;
 
 class LeetSpeakTranslator
 {
-    protected $search1 = array('E', 'O');
-    protected $replace1 = array('3', '0');
 
-    protected $search2 = array('E', 'O', 'L', 'A');
-    protected $replace2 = array('3', '0', '7', '4');
-
-    protected $search3 = array('E', 'O', 'L', 'A', 'I', 'R', 'S', 'T', 'G');
-    protected $replace3 = array('3', '0', '7', '4' ,'!','2', '5', '1', '9');
+    protected $replacements = [
+        1 => [
+            'E'=>'3',
+            'O'=>'0'
+        ],
+        2 => [
+            'L'=>'7',
+            'A'=>'4'
+        ],
+        3 => [
+            'I'=>'!',
+            'R'=>'2',
+            'S'=>'5',
+            'T'=>'1',
+            'G'=>'6'
+        ]
+    ];
 
     public function translate($word, $level)
     {
-
-        //TODO: replace the if with a switch
         if (!is_string($word)) {
             throw new InvalidArgumentException('First argument is not a string');
         } else if (strlen($word) < 1) {
@@ -35,12 +43,12 @@ class LeetSpeakTranslator
             throw new InvalidArgumentException('Second argument is higher than 3');
         }
 
-        if ($level == 1) {
-            return str_replace($this->search1, $this->replace1, strtoupper($word));
-        } else if ($level == 2) {
-            return str_replace($this->search2, $this->replace2, strtoupper($word));
-        } else {
-            return str_replace($this->search3, $this->replace3, strtoupper($word));
+        $word = strtoupper($word);
+        foreach ($this->replacements as $min_level => $replacement) {
+            if ($level >= $min_level) {
+                $word = str_replace(array_keys($replacement), array_values($replacement), $word);
+            }
         }
+        return $word;
     }
 }
