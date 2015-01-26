@@ -1,0 +1,10 @@
+<phpunit
+        processIsolation="false"
+        colors="true"
+        stopOnError="false">
+    <testsuites>
+        <testsuite name="LeetSpeakTranslatorTest">
+            <file>src/Tests/LeetSpeakTranslatorTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>

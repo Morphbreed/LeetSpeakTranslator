@@ -1,0 +1,11 @@
+{
+  "name": "morphbreed/leetspeaktranslator",
+  "autoload": {
+    "psr-4": {
+      "Morphbreed\\LeetSpeakTranslator\\": "src/"
+    }
+  },
+  "require": {
+    "phpunit/phpunit": "~4.4"
+  }
+}
