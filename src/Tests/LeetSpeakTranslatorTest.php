@@ -59,4 +59,17 @@ class LeetSpeakTranslatorTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException('InvalidArgumentException', 'Second argument is higher than 3');
         $this->translator->translate('reload', 4);
     }
+
+    public function testIfLeetSpeakTranslatorTranslateToNormal()
+    {
+        $word = '! 4M 1H3 H320 4ND 1337';
+        $expectedResult = 'I AM THE HERO AND 1337';
+        $result = $this->translator->untranslate($word);
+
+        $this->assertEquals(
+            $expectedResult,
+            $result,
+            'Your word is still normal!'
+        );
+    }
 }

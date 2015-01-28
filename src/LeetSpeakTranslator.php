@@ -59,4 +59,21 @@ class LeetSpeakTranslator
         }
         return $word;
     }
+
+    public function untranslate($word)
+    {
+        $normalText = Array();
+        $wordsFromString = explode(" ", $word);
+        foreach($wordsFromString as $wordFromMyString){
+            if (ctype_digit($wordFromMyString)){
+                array_push($normalText, $wordFromMyString);
+            } else {
+                foreach($this->replacements as $level => $replacement){
+                    $wordFromMyString = str_replace(array_values($replacement), array_keys($replacement), $wordFromMyString);
+                }
+                array_push($normalText, $wordFromMyString);
+            }
+        }
+        return ucfirst(strtolower(implode(' ', $normalText)));
+    }
 }
