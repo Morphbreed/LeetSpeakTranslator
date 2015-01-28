@@ -60,7 +60,7 @@ class LeetSpeakTranslator
         return $word;
     }
 
-    public function untranslate($word)
+    public function revert($word)
     {
         $normalText = Array();
         $wordsFromString = explode(" ", $word);
