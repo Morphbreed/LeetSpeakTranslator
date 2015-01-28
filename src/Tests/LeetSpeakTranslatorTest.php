@@ -63,7 +63,7 @@ class LeetSpeakTranslatorTest extends PHPUnit_Framework_TestCase
     public function testIfLeetSpeakTranslatorTranslateToNormal()
     {
         $word = '! 4M 1H3 H320 4ND 1337';
-        $expectedResult = 'I AM THE HERO AND 1337';
+        $expectedResult = 'I am the hero and 1337';
         $result = $this->translator->untranslate($word);
 
         $this->assertEquals(
