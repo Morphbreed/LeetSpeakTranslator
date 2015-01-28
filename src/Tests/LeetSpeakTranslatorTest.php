@@ -64,7 +64,7 @@ class LeetSpeakTranslatorTest extends PHPUnit_Framework_TestCase
     {
         $word = '! 4M 1H3 H320 4ND 1337';
         $expectedResult = 'I am the hero and 1337';
-        $result = $this->translator->untranslate($word);
+        $result = $this->translator->revert($word);
 
         $this->assertEquals(
             $expectedResult,
